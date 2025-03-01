@@ -32,7 +32,7 @@ export default async function Home({ searchParams }: HomePageProps) {
       try {
         const allPokemon = await getPokemonList(1000, 0);
         const matchingNames = allPokemon.results
-          .filter(p => p.name.toLowerCase().includes(query.toLowerCase()))
+          .filter(el => el.name.toLowerCase().includes(query.toLowerCase()))
           .slice(0, 12);
         
         if (matchingNames.length > 0) {
