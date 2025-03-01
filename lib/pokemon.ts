@@ -33,7 +33,6 @@ export async function getPokemonSpecies(id: number): Promise<PokemonSpecies> {
 }
 
 export async function searchPokemon(query: string): Promise<string[]> {
-  // Get a list of all Pokémon to search through
   const res = await fetch(`${API_URL}/pokemon?limit=2000`);
   
   if (!res.ok) {
@@ -42,11 +41,10 @@ export async function searchPokemon(query: string): Promise<string[]> {
   
   const data: PokemonListResponse = await res.json();
   
-  // Filter Pokémon names that match the query
   const filteredResults = data.results
-    .filter(pokemon => pokemon.name.toLowerCase().includes(query.toLowerCase()))
-    .map(pokemon => pokemon.name)
-    .slice(0, 10); // Limit to 10 results
+    .filter(el => el.name.toLowerCase().includes(query.toLowerCase()))
+    .map(el => el.name)
+    .slice(0, 10); 
     
   return filteredResults;
 }

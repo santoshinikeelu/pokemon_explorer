@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: PokemonPageProps) {
   };
 }
 
-export const revalidate = 60; // Revalidate the page every 60 seconds
+export const revalidate = 60; 
 
 export default async function PokemonPage({ params }: PokemonPageProps) {
   let pokemon;
